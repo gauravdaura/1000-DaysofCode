@@ -1,18 +1,18 @@
 #include <stdio.h>
 
-#define OFFSETOF(TYPE, ELEMENT) ((size_t)&(((TYPE *)0)->ELEMENT))
+#define OFFSETOF(TYPE, ELEMENT) ((size_t)&(((TYPE *)0)->ELEMENT)) 
 
-typedef struct PodTag
+typedef struct PadTags
 {
-int i;
-double d;
-char c;
-} PodType;
+    int i;
+    double j;
+    char k;
+} PadType;
 
-int main()
+int main(void)
 {
-printf("%lu", OFFSETOF(PodType, c));
-	
-getchar();
-return 0;
+    printf("%Llu", OFFSETOF(PadType, k));
+    getchar();
+
+    return 0;
 }
