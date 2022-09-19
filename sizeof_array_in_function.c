@@ -1,28 +1,27 @@
-// C Program to demonstrate correct usage of sizeof() for
-// arrays
 #include <stdio.h>
+#include <stdlib.h>
 
-void fun(int arr[], size_t arr_size)
+void arr_size(int arr[], int size)
 {
-	int i;
-	for (i = 0; i < arr_size; i++) {
-		arr[i] = i;
-	}
+    for(int i=0; i < size; i++)
+    {
+        arr[i] = i;
+    }
 }
 
-// Driver Code
-int main()
+int main(void)
 {
-	int i;
-	int arr[] = { 0, 0, 0, 0 };
-	size_t n = sizeof(arr) / sizeof(arr[0]);
-	fun(arr, n);
+    int arr[] = {0, 0, 0, 0};
+    size_t n;
 
-	printf("The size of the array is: %ld", n);
-	printf("\nThe elements are:\n");
-	for (i = 0; i < n; i++)
-		printf(" %d ", arr[i]);
+    n = sizeof(arr) / sizeof(arr[0]);
+    arr_size(arr, n);
 
-	getchar();
-	return 0;
+    printf("The size of array is %Ld\n", n);
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
 }
